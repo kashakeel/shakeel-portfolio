@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Phone, MessageSquare, Menu, X } from 'lucide-react';
+import photo from "./Photo.jpg";
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -194,7 +195,7 @@ const Portfolio = () => {
             <div className="flex-1 flex justify-center">
               <div className="relative w-64 h-64 md:w-80 md:h-80">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4D03AQG-5iBRgW4PnQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695232564184?e=1735171200&v=beta&t=BP4fhMUYJDTuarJhtdF0MQa9kfYHGETBQKGTgyUKLrw"
+                  src={photo}
                   alt="Shakeel K A Profile Photo"
                   className="rounded-full w-full h-full object-cover border-4 border-blue-500/30"
                 />
