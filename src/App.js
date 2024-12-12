@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MessageSquare, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MessageSquare, Menu, X, Quote } from 'lucide-react';
 import photo from "./Photo.jpg";
 
 const Portfolio = () => {
@@ -78,6 +78,27 @@ const Portfolio = () => {
     }
   ];
 
+ const clientAppreciations = [
+  {
+    name: "Martin Bigger",
+    company: "TPC Training",
+    quote: "Shakeel's expertise in simulations and debugging, especially with PLC logics, was integral to improving our training systems. His ability to identify and solve complex issues is impressive.",
+    role: "Lead Electromechanical Simulation Engineer"
+  },
+  {
+    name: "Alex Nunn",
+    company: "GardX International Ltd.",
+    quote: "Timely delivery and dedication are what set Shakeel apart. His hard work ensured the success of our critical projects, and his contributions have been invaluable to the team.",
+    role: "Director of Technology and IT"
+  },
+  {
+    name: "Eduard Spivak",
+    company: "Food Service Business Solutions",
+    quote: "The real-time communication improvements we achieved were thanks to Shakeel's exceptional skills in SignalR development. His hard work and attention to detail made a significant impact.",
+    role: "CTO"
+  }
+];
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -123,7 +144,7 @@ const Portfolio = () => {
           <div className="flex items-center justify-between">
             <div className="text-2xl font-bold">Shakeel.</div>
             <div className="hidden md:flex space-x-8">
-              {['Home', 'Experience', 'Skills', 'Education', 'Contact'].map(section => (
+              {['Home', 'Experience', 'Skills', 'Education', 'Appreciations', 'Contact'].map(section => (
                 <NavLink key={section} section={section} />
               ))}
             </div>
@@ -137,7 +158,7 @@ const Portfolio = () => {
             isMenuOpen ? 'max-h-64' : 'max-h-0'
           }`}>
             <div className="py-4 space-y-4">
-              {['Home', 'Experience', 'Skills', 'Education', 'Contact'].map(section => (
+              {['Home', 'Experience', 'Skills', 'Education', 'Appreciations', 'Contact'].map(section => (
                 <div key={section} className="px-4">
                   <NavLink section={section} />
                 </div>
@@ -270,6 +291,31 @@ const Portfolio = () => {
                 <div className="text-xl font-semibold mb-2">{item.degree}</div>
                 <div className="text-gray-400 mb-2">{item.school}</div>
                 <p className="text-gray-300">{item.grade}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Appreciations Section */}
+      <section id="appreciations" className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Client Appreciations</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {clientAppreciations.map((appreciation, index) => (
+              <div 
+                key={index} 
+                className="border border-blue-500/30 rounded-lg p-6 bg-blue-500/5 
+                  hover:border-blue-500 transition-colors relative"
+              >
+                <Quote className="absolute top-4 left-4 w-12 h-12 text-blue-400/30" />
+                <div className="relative z-10">
+                  <p className="text-gray-300 italic mb-4 pl-8">"{appreciation.quote}"</p>
+                  <div className="mt-4">
+                    <div className="text-xl font-semibold">{appreciation.name}</div>
+                    <div className="text-gray-400 text-sm">{appreciation.role}, {appreciation.company}</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
